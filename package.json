@@ -1,0 +1,15 @@
+{
+  "name": "wave-app",
+  "version": "1.0.0",
+  "description": "BuildSpace Wave App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Matt Eller",
+  "license": "ISC",
+  "devDependencies": {
+    "hardhat": "^2.7.1"
+  }
+}
