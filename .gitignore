@@ -4,7 +4,9 @@ node_modules
 coverage
 coverage.json
 typechain
+*.lock
 
 #Hardhat files
 cache
 artifacts
+hardhat.config.js
