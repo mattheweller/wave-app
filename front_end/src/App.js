@@ -131,7 +131,7 @@ export default function App() {
         let waveCount = await wavePortalContract.getTotalWaves();
         console.log("Retrieved total wave count...", waveCount.toNumber());
 
-        const waveTxn = await wavePortalContract.wave(message, { gasLimit: 300000});
+        const waveTxn = await wavePortalContract.wave("message", { gasLimit: 300000});
         console.log("Mining...", waveTxn.hash);
 
         await waveTxn.wait();
