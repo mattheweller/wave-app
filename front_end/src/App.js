@@ -131,7 +131,7 @@ export default function App() {
         let waveCount = await wavePortalContract.getTotalWaves();
         console.log("Retrieved total wave count...", waveCount.toNumber());
 
-        const waveTxn = await wavePortalContract.wave("message", { gasLimit: 300000});
+        const waveTxn = await wavePortalContract.wave(message, { gasLimit: 300000});
         console.log("Mining...", waveTxn.hash);
 
         await waveTxn.wait();
@@ -153,6 +153,15 @@ export default function App() {
     checkIfWalletIsConnected();
   }, [])
 
+  const handleMessage = event => {
+    setMessage(event.target.value);
+  }
+
+  const submitHandler = event => {
+    event.preventDefault();
+    wave();
+}
+
 
   return (
     <div className="mainContainer">
@@ -170,10 +179,10 @@ export default function App() {
         <br /><br />
         Current Number of waves: {waveCount}
         
-        <form className="message" >
+        <form onSubmit={submitHandler} className="message" >
           <label>
             Add a message:
-            <input type="text" name="message" value={message} onChange={e => setMessage(e.target.value)}/>
+            <input type="text" name="message" value={message} onChange={handleMessage}/>
           </label>
         </form>
 
