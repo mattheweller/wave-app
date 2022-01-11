@@ -25,7 +25,7 @@ Follow the steps below to run the frontend locally:
 
 Follow the steps below to deploy the backend:
 
-- - cd into `back_end`
+- cd into `back_end`
 - Install dependencies: `npm install`
 - List test accounts from your local hardhat node: `npx hardhat accounts`
 - Compile smart contracts: `npx hardhat compile`
