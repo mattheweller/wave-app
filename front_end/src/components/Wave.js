@@ -11,7 +11,7 @@ const ReactionEmojis = {
 	[Reaction.Hype]: "🔥",
 };
 
-export default function Wave({ reaction, message, waver, timestamp, txLink }) {
+export default function Wave({ reaction, message, waver, timestamp }) {
 	return (
 		<div className="wave">
 			<div className="reaction">{ReactionEmojis[reaction]}</div>
@@ -23,8 +23,6 @@ export default function Wave({ reaction, message, waver, timestamp, txLink }) {
 					<dd>
 						{formatDate(timestamp)} at {formatTime(timestamp)}
 					</dd>
-					<dt>Link:</dt>
-					<dd><a href={txLink}>{txLink}</a></dd>
 				</dl>
 				<div className="message">{message}</div>
 			</div>

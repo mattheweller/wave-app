@@ -25,7 +25,7 @@ Follow the steps below to run the frontend locally:
 
 Follow the steps below to deploy the backend:
 
-- - cd into `back_end`
+- cd into `back_end`
 - Install dependencies: `npm install`
 - List test accounts from your local hardhat node: `npx hardhat accounts`
 - Compile smart contracts: `npx hardhat compile`
@@ -39,3 +39,17 @@ Follow the steps below to deploy the backend:
 ### Testnet deployment
 
 - Deploy contract to rinkeby testnet: `npx hardhat run scripts/deploy.js --network rinkeby`
+
+The above script will deploy your contract to the rinkeby testnet, however to interact with your contract in your app you'll need to copy the deployed `WavePortal` contract address to your `front_end/.env` file.
+
+Terminal output for the above command should look something like this:
+
+```
+Compiling 1 file with 0.8.4
+Compilation finished successfully
+Deploying contracts with the account: 0xdF1D45cD1D2Ef4FD42C64a18E09563b0dcD6d591
+Account balance: 8835324875309980186
+WavePortal address: 0x6c753E676DEf417623C135aABc9Fd01C282CbD42
+```
+
+Also, FYI, there is a function call in `deploy.js` that copies the json representation of the contract from the backend to the frontend. You should not need to copy that json file manually, but you could if you wanted to.

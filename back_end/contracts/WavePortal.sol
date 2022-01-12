@@ -34,8 +34,8 @@ contract WavePortal {
 	function wave(Reaction _reaction, string memory _message) public {
 		// anti-spam check
 		require(
-			lastWavedAt[msg.sender] + 15 seconds < block.timestamp,
-			"Wait 15 seconds to send another wave for testing. Will be changed for prod!"
+			lastWavedAt[msg.sender] + 1 minutes < block.timestamp,
+			"Wait 1 minutes to send another wave for testing. Please do not spam this app!"
 		);
 		lastWavedAt[msg.sender] = block.timestamp;
 

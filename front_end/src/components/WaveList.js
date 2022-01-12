@@ -18,7 +18,6 @@ export default function WaveList({ waveList }) {
 					message={wave.message}
 					waver={wave.waver}
 					timestamp={wave.timestamp}
-					txLink={wave.link}
 				/>
 			))}
 		</div>

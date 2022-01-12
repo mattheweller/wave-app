@@ -5,7 +5,6 @@ import wavePortalAbi from "../contracts/WavePortal.json";
 import useWindowFocus from "./useWindowFocus";
 
 const RINKEBY_CONTRACT_ADDRESS = process.env.REACT_APP_RINKEBY_CONTRACT_ADDRESS;
-let txHash = "";
 
 export const Reaction = {
 	Wave: 0,
@@ -109,6 +108,7 @@ export default function useWallet() {
 				setWriteLoading(WriteStatus.Pending);
 
 				await transaction.wait();
+				console.log("Mined -- ", transaction.hash)
 				updateWaves();
 				setWriteLoading(WriteStatus.None);
 			})
@@ -151,7 +151,6 @@ async function getWalletConnected() {
 	}
 
 	const accountList = await window.ethereum.request({ method: "eth_accounts" });
-	console.log({ accountList });
 	return accountList.length !== 0;
 }
 
@@ -177,7 +176,6 @@ async function getTotalWaves() {
 	);
 
 	const totalWaves = await wavePortalContract.getTotalWaves();
-	console.log({ totalWaves });
 	return Number.parseInt(totalWaves.toString(), 10);
 }
 
@@ -193,10 +191,6 @@ async function writeWave(reaction, message) {
 	const wave = await wavePortalContract.wave(reaction, message, {
 		gasLimit: 400000,
 	});
-	console.log("Mining...", wave.hash)
-	await wave.wait()
-	console.log("Mined -- ", wave.hash)
-	txHash = wave.hash
 	return wave;
 }
 
@@ -223,7 +217,6 @@ async function getAllWaves() {
 		message: wave.message,
 		waver: wave.waver,
 		timestamp: new Date(wave.timestamp * 1000),
-		link: `https://rinkeby.etherscan.io/tx/${txHash}`,
 	});
 
 	return allWaves.map(normalizeWave).sort((a, b) => b.timestamp - a.timestamp);
