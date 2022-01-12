@@ -17,6 +17,7 @@ This is my project for the course [Build a Web3 App with Solidity + Ethereum Sma
 Follow the steps below to run the frontend locally:
 
 - cd into `front_end`
+- Use the `.env.example` to enter valid details DO NOT PUSH YOUR REAL `.env`!!
 - Install dependencies: `yarn install`
 - Run the application locally: `yarn start`
 - Access the application at http://localhost:3000/
@@ -26,6 +27,7 @@ Follow the steps below to run the frontend locally:
 Follow the steps below to deploy the backend:
 
 - cd into `back_end`
+- Use the `.env.example` to enter valid details DO NOT PUSH YOUR REAL `.env`!!
 - Install dependencies: `npm install`
 - List test accounts from your local hardhat node: `npx hardhat accounts`
 - Compile smart contracts: `npx hardhat compile`
